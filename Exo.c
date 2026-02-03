@@ -1,26 +1,25 @@
 #include <stdio.h>
 int main(){
     int i,n,nombre;
-    int sommePairs = 0;
-    int compteurPairs = 0;
-    float moyenne;
+    int sommeNegatifs = 0;
+    int compteurNegatifs = 0;
 
     printf("Combien de nombres voulez-vous entrer ? ");
     scanf("%d",&n);
 
-    for(i = 1; i <= n; i++){
+    for(i = 1; i <= n; i+=1){
         printf("Entrez le nombre numero %d : ", i);
         scanf("%d", &nombre);
-        if(nombre % 2 == 0){
-            sommePairs += nombre;
-            compteurPairs += 1;
+        if(nombre < 0){
+            sommeNegatifs += nombre;
+            compteurNegatifs += 1;
         }
     }
-        if (compteurPairs > 0){
-            moyenne = (sommePairs * 1.0) / compteurPairs;
-            printf("\nLa moyenne des %d nombres pairs est : %.2f\n", compteurPairs, moyenne);
+        if (compteurNegatifs > 0){
+            printf("\nVous avez saisi %d nombre(s) negatif(s).\n", compteurNegatifs);
+            printf("La somme de ces nombres negatifs est : %d\n", sommeNegatifs);
         } else {
-            printf("\nVous n'avez saisi aucun nombre pair.\n");
+            printf("\nVous n'avez saisi aucun nombre negatif.\n");
         }
     return 0;
 }
